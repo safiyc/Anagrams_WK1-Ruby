@@ -5,7 +5,16 @@ class Words
     @words = words
   end
 
-  #check for letters
+#   def find_anagrams (new_words)
+#     new_words = @words
+#     if ((@words =~ /^[a-zA-Z]+$/) & (@words =~ /[aeiou]/))
+#       return @words.downcase.chars.sort.join
+#     else
+#       "Please enter real words."
+#     end
+#   end
+# end
+
   def check_alphas (new_words)
     new_words = @words
     if @words =~ /^[a-zA-Z]+$/
@@ -15,19 +24,27 @@ class Words
     end
   end
 
-  #rule 2: change to lowercase
   def to_lowercase (new_words)
     new_words = @words
     @words.downcase
   end
 
-  #rule 4: check for vowels to confirm are words
   def find_vowels (new_words)
     new_words = @words
     if @words =~ /[aeiou]/
       "It's a real word!"
     else
-      "Please enter vowels to spell real words"
+      "Please include vowels to make words real."
     end
   end
+
+  def check_anagrams (new_words)
+    new_words.chars.sort.join == @words.chars.sort.join
+  end
+
+  #combine above methods
+  # def methods_combined (new_words)
+  #   new_words = @words
+  #   check_alphas(new_words) + to_lowercase(new_words) + find_vowels(new_words) + check_anagrams(new_words)
+  # end
 end
