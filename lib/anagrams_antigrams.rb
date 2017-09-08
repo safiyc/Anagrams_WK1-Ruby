@@ -3,14 +3,21 @@ require('pry')
 class Words
   def initialize (words)
     @words = words
-  end   # end 'initialize'
-# binding.pry
-  def only_alpha?(initial_words)   # rule6
-    initial_words = @words
-    if initial_words =~ /^[a-zA-Z]+$/
-      return true
+  end
+
+  def check_alphas (new_words)
+    new_words = @words
+    if @words =~ /^[a-zA-Z]+$/
+      true
     else
-      return false
+      false
     end
   end
+
+  def to_lowercase (new_words)
+    new_words = @words
+    @words.downcase
+  end
+
+
 end
