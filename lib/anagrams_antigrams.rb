@@ -2,15 +2,16 @@ require('pry')
 
 class Words
   def initialize (word1, word2)
-    @word1 = word1
-    @word2 = word2
+    @word1 = word1.gsub(/[^a-zA-Z]/, '')
+    @word2 = word2.gsub(/[^a-zA-Z]/, '')
+    @words_array = []
   end
 
   def confirm_anagrams
     if @word1 =~ /[aeiouy]/ && @word2 =~ /[aeiouy]/
-      return "These are real words."
+      return @words_array.push(@word1, @word2)
     else
-      return "These are not real words because they don't have vowels."
+      return "These words are neither anagrams or antigrams because they are not real words. Real words have vowels."
     end
   end
 

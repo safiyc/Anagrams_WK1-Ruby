@@ -5,7 +5,12 @@ require('pry')
 describe('#anagrams_antigrams') do
   it("checks for vowels to confirm if real words") do
     user_words = Words.new("rbd", "dbr")
-    expect(user_words.confirm_anagrams()).to(eq("These are not real words because they don't have vowels."))
+    expect(user_words.confirm_anagrams()).to(eq("These words are neither anagrams or antigrams because they are not real words. Real words have vowels."))
+  end
+
+  it("removes spaces and special characters") do
+    user_words = Words.new("ru !by", "RU?B!y")
+    expect(user_words.confirm_anagrams()).to(eq(["ruby", "RUBy"]))
   end
 end
 
