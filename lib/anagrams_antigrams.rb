@@ -9,7 +9,14 @@ class Words
 
   def confirm_anagrams
     if @word1 =~ /[aeiouy]/ && @word2 =~ /[aeiouy]/
-      return @words_array.push(@word1, @word2)
+      if true do
+        @words_array.push(@word1, @word2)
+        end
+        if true do
+          @words_array.map(&:downcase)
+          end
+        end
+      end
     else
       return "These words are neither anagrams or antigrams because they are not real words. Real words have vowels."
     end

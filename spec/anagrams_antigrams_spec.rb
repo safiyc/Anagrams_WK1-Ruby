@@ -12,6 +12,11 @@ describe('#anagrams_antigrams') do
     user_words = Words.new("ru !by", "RU?B!y")
     expect(user_words.confirm_anagrams()).to(eq(["ruby", "RUBy"]))
   end
+
+  it("changes words to lowercase") do
+    user_words = Words.new("ruby", "RUBy")
+    expect(user_words.confirm_anagrams()).to(eq(["ruby", "ruby"]))
+  end
 end
 
 # describe('#anagrams_antigrams') do
