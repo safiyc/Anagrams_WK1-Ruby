@@ -35,7 +35,7 @@ class Word
         return "These words are antigrams."
       end
     else
-      return "One or two of these inputs are not real words. Real words have vowels."
+      return "One or two of these inputs are not real words, which have vowels. Anagrams and antigrams are real words."
     end
   end
 end
