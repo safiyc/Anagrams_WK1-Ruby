@@ -1,67 +1,41 @@
-require('pry')
-
-class Words
-  def initialize (word1, word2)
-    @word1 = word1.gsub(/[^a-zA-Z]/, '')
-    @word2 = word2.gsub(/[^a-zA-Z]/, '')
-    @words_array = []
+class Word
+  def initialize (wordx)
+    @word = wordx.gsub(/[^a-zA-Z]/, '').downcase
   end
 
-  def confirm_anagrams
-    if @word1 =~ /[aeiouy]/ && @word2 =~ /[aeiouy]/
-      if true do
-        @words_array.push(@word1, @word2)
-        end
-        if true do
-          @words_array.map(&:downcase)
-          end
-        end
-      end
+  def input_value
+    @word
+  end
+
+  def is_word
+    if input_value =~ /[aeiou]/
+      return true
     else
-      return "These words are neither anagrams or antigrams because they are not real words. Real words have vowels."
+      return false
     end
   end
 
-#   def find_anagrams (new_words)
-#     new_words = @words
-#     if ((@words =~ /^[a-zA-Z]+$/) & (@words =~ /[aeiou]/))
-#       return @words.downcase.chars.sort.join
-#     else
-#       "Please enter real words."
-#     end
-#   end
-# end
+  def sort_word
+      @word.split("").sort.join
+  end
 
-  # def check_alphas (new_words)
-  #   new_words = @words
-  #   if @words =~ /^[a-zA-Z]+$/
-  #     true
-  #   else
-  #     "Please enter only letters."
-  #   end
-  # end
-  #
-  # def to_lowercase (new_words)
-  #   new_words = @words
-  #   @words.downcase
-  # end
-  #
-  # def find_vowels (new_words)
-  #   new_words = @words
-  #   if @words =~ /[aeiou]/
-  #     "It's a real word!"
-  #   else
-  #     "Please include vowels to make words real."
-  #   end
-  # end
-  #
-  # def check_anagrams (new_words)
-  #   new_words.chars.sort.join == @words.chars.sort.join
-  # end
+  def reverse_word
+      @word.reverse
+  end
 
-  #combine above methods
-  # def methods_combined (new_words)
-  #   new_words = @words
-  #   check_alphas(new_words) + to_lowercase(new_words) + find_vowels(new_words) + check_anagrams(new_words)
-  # end
+  def confirm_anagrams (wordb)
+    if self.is_word == true && wordb.is_word == true
+      if self.sort_word == wordb.sort_word
+        if self.input_value == wordb.reverse_word
+          return "These words are anagrams and they are palindromes."
+        else
+          return "These words are anagrams."
+        end
+      else
+        return "These words are antigrams."
+      end
+    else
+      return "One or two of these inputs are not real words. Real words have vowels."
+    end
+  end
 end
