@@ -34,4 +34,10 @@ describe('#anagrams_antigrams') do
    word2 = Word.new("ybur")
    expect(word1.confirm_anagrams(word2)).to(eq("These words are anagrams and they are palindromes."))
  end
+
+ it("checks to see if antigrams, if not anagrams") do
+   word1 = Word.new("ruby")
+   word2 = Word.new("dog")
+   expect(word1.confirm_anagrams(word2)).to(eq("These words are antigrams."))
+ end
 end
