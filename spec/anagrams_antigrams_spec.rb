@@ -9,4 +9,11 @@ describe('#anagrams_antigrams') do
    expect(word1.input_value).to(eq("ruby"))
    expect(word2.input_value).to(eq("bury"))
  end
+
+ it("changes all letters to lowercase") do
+   word1 = Word.new("Ruby")
+   word2 = Word.new("bURy")
+   expect(word1.input_value).to(eq("ruby"))
+   expect(word2.input_value).to(eq("bury"))
+ end
 end
