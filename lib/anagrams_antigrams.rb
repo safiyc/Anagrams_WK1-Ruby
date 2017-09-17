@@ -1,10 +1,10 @@
 class Word
   def initialize (wordx)
-    @word = wordx.gsub(/[^a-zA-Z]/, '').downcase
+    @word = wordx
   end
 
   def input_value
-    @word
+    @word.gsub(/[^a-zA-Z]/, '').downcase
   end
 
   def is_word
