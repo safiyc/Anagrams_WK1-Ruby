@@ -1,6 +1,5 @@
 require('rspec')
 require('anagrams_antigrams')
-require('pry')
 
 describe('#anagrams_antigrams') do
   it("removes spaces and special characters") do
